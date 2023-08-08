@@ -1,10 +1,46 @@
 # mySystemHealth
 
-mySystemHealth is a script that helps the update/upgrade of gnu/linux systems
+This script will update your system by refreshing the package list, downloading and installing any available updates, and removing any outdated packages and configuration files.
 
-Here you can find the Fedora version.
+## Usage
 
-Comming soon is the openSUSE version.
+1. Download the file.  
+
+2. Make it executable with the command.
+
+```
+chmod +x mysystemhealth
+```
+
+3. You can run it using the command
+
+```
+sudo ./mysystemhealth
+```
+
+## Use as root user.
+
+You better copy the file in your **/usr/bin** folder.
+
+```
+sudo cp mysystemhealth /usr/bin/
+```
+
+Then you can run the command on your terminal usind the following command.
+
+```
+sudo mysystemhealth
+```
+
+## Comming soon
+
+Same script for openSUSE.
+
+## Requests
+
+If you like the script, you can contribute with a simple GUI.
+
+## Donation
 
 If you find this script useful and have saved you time, you can make a donation to the author via [PayPal](https://www.paypal.com/donate?token=HAVJSbTeBZHUAB17kl0BZmxlheTR8pXdkE6-knz9RWfPkxxdLF8gVUxFJLwwNmktexRArt6w4O-N--T_). You can also scan the following qr.
 
@@ -12,3 +48,5 @@ If you find this script useful and have saved you time, you can make a donation 
     <img width="33%" src="paypal.png" alt="Donate via Paypal">
 </p>
 
+
+# Thanks
