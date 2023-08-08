@@ -7,7 +7,7 @@ set -e
 #_______________________________________________
 # Name   : mySystemHealth
 # Licence: GPL3 (http://www.gnu.org/licenses/gpl.html)
-# Author : Efatathios Iosifidis
+# Author : Efstathios Iosifidis
 # WebSite: http://iosifidis.gr
 # Email  : stathis-(at)-iosifidis.gr
 # Date   : 08-08-2023 (first release 17-07-2023)
@@ -53,8 +53,10 @@ function WELCOME_SCREEN {
     echo "                   				         "
     echo " If you find this script useful and have saved you time, "
     echo " you can make a donation to the author via PayPal.     "
-    echo " The donation link is provided below.		         "
-    echo "                                                       "
+    echo " The donation link is provided below.    		 "
+    echo "                   				         "
+    echo "           https://cutt.ly/eiosifidis                  "
+    echo "                   	or			         "
     echo "           https://www.paypal.me/eiosifidis            "
     echo "_______________________________________________________"
     echo
