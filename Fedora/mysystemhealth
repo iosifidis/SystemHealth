@@ -33,6 +33,38 @@ if [[ $EUID -ne 0 ]] ; then
     exit 1
 fi
 
+function WELCOME_SCREEN {
+    echo "_________________________________________________________"
+    echo "                                                       "
+    echo "            mySystemHealth $MYSYSTEM_VERSION           "
+    echo "            ~~~~~~~~~~~~~~~~~~~~~               	 "
+    echo "                                                       "
+    echo " Welcome to System Update and maintenance app.         "
+    echo "                                                       "
+    echo "                                                       "
+    echo " This script will automatically update your system, 	 "
+    echo " remove old kernels and obsolete packages,             "
+    echo " update flatpacks and free up disk space.   		 "
+    echo " It is easy to use and does not require any use        "
+    echo " intervention.				         "
+    echo "                   				         "
+    echo " You can contribute to this script here:	         "
+    echo " https://github.com/iosifidis/mySystemHealth	         "
+    echo "                   				         "
+    echo " If you find this script useful and have saved you time, "
+    echo " you can make a donation to the author via PayPal.     "
+    echo " The donation link is provided below.    		 "
+    echo "                   				         "
+    echo "           https://cutt.ly/eiosifidis                  "
+    echo "                   	or			         "
+    echo "           https://www.paypal.me/eiosifidis            "
+    echo "_________________________________________________________"
+    echo
+    echo " mySystemHealth will start in 4 seconds... "
+
+    sleep 5
+}
+
 function MAINTENANCE {
     echo
     echo
@@ -146,38 +178,6 @@ function MAINTENANCE {
         echo "* * * * * * * * * * * * * * * * * *"
         echo
     fi
-}
-
-function WELCOME_SCREEN {
-    echo "_________________________________________________________"
-    echo "                                                       "
-    echo "            mySystemHealth $MYSYSTEM_VERSION           "
-    echo "            ~~~~~~~~~~~~~~~~~~~~~               	 "
-    echo "                                                       "
-    echo " Welcome to System Update and maintenance app.         "
-    echo "                                                       "
-    echo "                                                       "
-    echo " This script will automatically update your system, 	 "
-    echo " remove old kernels and obsolete packages,             "
-    echo " update flatpacks and free up disk space.   		 "
-    echo " It is easy to use and does not require any use        "
-    echo " intervention.				         "
-    echo "                   				         "
-    echo " You can contribute to this script here:	         "
-    echo " https://github.com/iosifidis/mySystemHealth	         "
-    echo "                   				         "
-    echo " If you find this script useful and have saved you time, "
-    echo " you can make a donation to the author via PayPal.     "
-    echo " The donation link is provided below.    		 "
-    echo "                   				         "
-    echo "           https://cutt.ly/eiosifidis                  "
-    echo "                   	or			         "
-    echo "           https://www.paypal.me/eiosifidis            "
-    echo "_________________________________________________________"
-    echo
-    echo " mySystemHealth will start in 4 seconds... "
-
-    sleep 5
 }
 
 function SHOW_HELP {
