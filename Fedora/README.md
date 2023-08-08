@@ -29,5 +29,5 @@ sudo cp mysystemhealth /usr/bin/
 Then you can run the command on your terminal usind the following command.
 
 ```
-mysystemhealth
+sudo mysystemhealth
 ```
