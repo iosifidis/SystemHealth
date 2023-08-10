@@ -20,9 +20,9 @@ chmod +x mysystemhealth
 sudo ./mysystemhealth
 ```
 
-## Use as root user.
+## Use as the root user.
 
-You better copy the file in your **/usr/bin** folder.
+You better copy the file to your **/usr/bin** folder.
 
 ```
 sudo cp mysystemhealth /usr/bin/
