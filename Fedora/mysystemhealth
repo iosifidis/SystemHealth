@@ -10,7 +10,7 @@ set -e
 # Author : Efstathios Iosifidis
 # WebSite: http://iosifidis.gr
 # Email  : stathis-(at)-iosifidis.gr
-# Date   : 08-08-2023 (first release 17-07-2023)
+# Date   : 10-08-2023 (first release 17-07-2023)
 # Version: 1.0
 # System : Fedora Linux and derivatives.
 # Description:
