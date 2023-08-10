@@ -1,6 +1,6 @@
 # mySystemHealth for openSUSE and Fedora
 
-This script will update your system by refreshing the package list, downloading and installing any available updates, and removing any outdated packages and configuration files.
+This script is a powerful tool designed to ensure the optimal performance and security of your system. This script automates the process of updating your system by executing a series of essential tasks. It refreshes the package list, downloads and installs available updates, and efficiently removes outdated packages and obsolete configuration files.
 
 ## Usage
 
