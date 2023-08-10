@@ -18,15 +18,15 @@ chmod +x mysystemhealth
 sudo ./mysystemhealth
 ```
 
-## Use as root user.
+## Use as the root user.
 
-You better copy the file in your **/usr/bin** folder.
+You better copy the file to your **/usr/bin** folder.
 
 ```
 sudo cp mysystemhealth /usr/bin/
 ```
 
-Then you can run the command on your terminal usind the following command.
+Then you can run the command on your terminal using the following command.
 
 ```
 sudo mysystemhealth
