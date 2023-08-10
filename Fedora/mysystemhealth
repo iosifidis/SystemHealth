@@ -11,7 +11,7 @@ set -e
 # WebSite: http://iosifidis.gr
 # Email  : stathis-(at)-iosifidis.gr
 # Date   : 10-08-2023 (first release 17-07-2023)
-# Version: 1.0
+# Version: 1.1
 # System : Fedora Linux and derivatives.
 # Description:
 # This script will update your system by refreshing the package list, 
@@ -20,18 +20,7 @@ set -e
 ## Script starts here
 
 # Here are the Variables
-# DATE=$(date +%F_%T)
 MYSYSTEM_VERSION="Fedora"
-
-# Checks if the user has run the script with "sudo" or not
-if [[ $EUID -ne 0 ]] ; then
-    clear
-    echo ""
-    echo "mySystemHealth must be run as root or with sudo. Now I will just exit..." 1>&2
-    echo ""
-    sleep 2
-    exit 1
-fi
 
 function WELCOME_SCREEN {
     echo "_________________________________________________________"
@@ -61,6 +50,16 @@ function WELCOME_SCREEN {
 }
 
 function MAINTENANCE {
+# Checks if the user has run the script with "sudo" or not
+   if [[ $EUID -ne 0 ]] ; then
+       clear
+       echo ""
+       echo "mySystemHealth must be run as root or with sudo. Now I will just exit..." 1>&2
+       echo ""
+       sleep 2
+       exit 1
+   fi
+
     echo
     echo
     echo "#########################"
@@ -69,15 +68,15 @@ function MAINTENANCE {
     echo
 
     ## Updates package lists
-    sudo dnf check-update;
-    echo
-    echo "###############################"
-    echo "Finished updating package lists"
-    echo "###############################"
-    sleep 1
+    #sudo dnf check-update;
+    #echo
+    #echo "###############################"
+    #echo "Finished updating package lists"
+    #echo "###############################"
+    #sleep 1
 
     ## Updates packages and libraries
-    sudo dnf upgrade -y;
+    dnf upgrade -y;
     echo
     echo "###############################################"
     echo "Finished updating packages and system libraries"
@@ -86,7 +85,7 @@ function MAINTENANCE {
     echo
 
     ## Removes unneeded packages
-    sudo dnf autoremove -y;
+    dnf autoremove;
     echo
     echo "###################################"
     echo "Finished removing unneeded packages"
@@ -95,7 +94,7 @@ function MAINTENANCE {
     echo
 
     ## Removes old kernels
-    sudo dnf --setopt=protected_packages= remove -y $(rpm -q kernel-core | grep -v $(uname -r));
+    dnf --setopt=protected_packages= remove -y $(rpm -q kernel-core | grep -v $(uname -r));
     echo
     echo "###################################"
     echo "Finished removing old kernels"
@@ -104,7 +103,7 @@ function MAINTENANCE {
     echo
 
     ## Removes unused config files
-    sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q) -y;
+    dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q) -y;
     echo
     echo "#####################################"
     echo "Finished removing unused config files"
@@ -113,7 +112,7 @@ function MAINTENANCE {
     echo
 
     ## Removes package files that can no longer be downloaded
-    sudo dnf clean all;
+    dnf clean all;
     echo
     echo "######################################"
     echo "Cleaned downloaded temporary packages"
@@ -122,7 +121,7 @@ function MAINTENANCE {
     sleep 1
 
     ## Updates Flatpak packages
-    sudo flatpak update -y;
+    flatpak update -y;
     echo
     echo "######################################"
     echo "Finished updating Flatpak packages"
@@ -131,7 +130,7 @@ function MAINTENANCE {
     sleep 1
 
     ## Removes unused Flatpak runtimes and extensions
-    sudo flatpak uninstall --unused -y;
+    flatpak uninstall --unused -y;
     echo
     echo "##########################################################"
     echo "Finished removing unused Flatpak runtimes and extensions"

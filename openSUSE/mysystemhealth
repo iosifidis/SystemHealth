@@ -11,7 +11,7 @@ set -e
 # WebSite: http://iosifidis.gr
 # Email  : stathis-(at)-iosifidis.gr
 # Date   : 10-08-2023 (first release 17-07-2023)
-# Version: 1.0
+# Version: 1.1
 # System : openSUSE Linux and derivatives (Tumbleweed version).
 # Description:
 # This script will update your system by refreshing the package list, 
@@ -21,16 +21,6 @@ set -e
 
 # Here are the Variables
 MYSYSTEM_VERSION="openSUSE Tumbleweed"
-
-# Checks if the user has run the script with "sudo" or not
-if [[ $EUID -ne 0 ]] ; then
-    clear
-    echo ""
-    echo "mySystemHealth must be run as root or with sudo. Now I will just exit..." 1>&2
-    echo ""
-    sleep 2
-    exit 1
-fi
 
 function WELCOME_SCREEN {
     echo "_________________________________________________________"
@@ -60,6 +50,16 @@ function WELCOME_SCREEN {
 }
 
 function MAINTENANCE {
+# Checks if the user has run the script with "sudo" or not
+   if [[ $EUID -ne 0 ]] ; then
+       clear
+       echo ""
+       echo "mySystemHealth must be run as root or with sudo. Now I will just exit..." 1>&2
+       echo ""
+       sleep 2
+       exit 1
+   fi
+   
     echo
     echo
     echo "#########################"
@@ -68,7 +68,7 @@ function MAINTENANCE {
     echo
 
     ## Updates package lists
-    sudo zypper refresh;
+    zypper refresh;
     echo
     echo "###############################"
     echo "Finished updating package lists"
@@ -76,7 +76,7 @@ function MAINTENANCE {
     sleep 1
 
     ## Updates packages and libraries
-    sudo zypper dup -y;
+    zypper dup -y;
     echo
     echo "###############################################"
     echo "Finished updating packages and system libraries"
@@ -94,7 +94,7 @@ function MAINTENANCE {
     echo
 
     ## Removes old kernels
-    sudo zypper purge-kernels;
+    zypper purge-kernels;
     echo
     echo "###################################"
     echo "Finished removing old kernels"
@@ -103,7 +103,7 @@ function MAINTENANCE {
     echo
 
     ## Removes unused config files
-    sudo rpmconfigcheck;
+    rpmconfigcheck;
     echo
     echo "#####################################"
     echo "Finished removing unused config files"
@@ -121,7 +121,7 @@ function MAINTENANCE {
     sleep 1
 
     ## Updates Flatpak packages
-    sudo flatpak update -y;
+    flatpak update -y;
     echo
     echo "######################################"
     echo "Finished updating Flatpak packages"
@@ -130,7 +130,7 @@ function MAINTENANCE {
     sleep 1
 
     ## Removes unused Flatpak runtimes and extensions
-    sudo flatpak uninstall --unused -y;
+    flatpak uninstall --unused -y;
     echo
     echo "##########################################################"
     echo "Finished removing unused Flatpak runtimes and extensions"
@@ -163,7 +163,6 @@ function MAINTENANCE {
     echo
 
 }
-
 
 function GOODBYE {
     sleep 2
