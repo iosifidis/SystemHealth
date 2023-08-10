@@ -12,7 +12,7 @@ set -e
 # Email  : stathis-(at)-iosifidis.gr
 # Date   : 08-08-2023 (first release 17-07-2023)
 # Version: 1.0
-# System : Fedora Linux and derivatives.
+# System : openSUSE Linux and derivatives.
 # Description:
 # This script will update your system by refreshing the package list, 
 # downloading and installing any available updates, and removing any outdated packages and configuration files. 
@@ -20,7 +20,6 @@ set -e
 ## Script starts here
 
 # Here are the Variables
-DATE=$(date +%F_%T)
 MYSYSTEM_VERSION="openSUSE Tumbleweed"
 
 # Checks if the user has run the script with "sudo" or not
@@ -41,9 +40,7 @@ function WELCOME_SCREEN {
     echo "                                                       "
     echo " Welcome to System Update and maintenance app.         "
     echo "                                                       "
-    echo " This script will automatically update your system, 	 "
-    echo " remove old kernels and obsolete packages,             "
-    echo " update flatpacks and free up disk space.   		 "
+    echo " This script will automatically update your system. 	 "
     echo "                   				         "
     echo " You can contribute to this script here:	         "
     echo " https://github.com/iosifidis/mySystemHealth	         "
@@ -167,41 +164,6 @@ function MAINTENANCE {
 
 }
 
-function SHOW_HELP {
-    cat << EOF
-
-            mySystemHealth
-                ~ $MYSYSTEM_VERSION ~
-         All-in-one system update and maintenance app
-
-    Usage: sudo mysystemhealth <parameter>
-
-    If no parameter is specified, it will just do the regular
-    maintenance:
-
-     * Updates the list of available packages
-     * Downloads and installs the available updates
-     * Checks if there are older Linux kernels on the system and removes
-       them. However, it keeps the current and one previous version of
-       the kernel.
-     * Cleans the cache of the downloaded packages
-     * Removes obsolete packages
-     * Removes orphan packets
-     * Deletes package configuration files from packages that have been
-       uninstalled by you.
-     * Updates Flatpack.
-     * Removes unused Flatpak runtimes and extensions
-     * Clears Flatpack cache.
-
-    Parameter:
-         -h          display this help and exit
-
-         -r          After completing all the tasks, reboot the system
-
-         -s          After completing all the tasks, shutdown the system
-
-EOF
-}
 
 function GOODBYE {
     sleep 2
@@ -212,43 +174,6 @@ function GOODBYE {
     echo "##################################"
 }
 
-function SHUTDOWN {
-    sleep 1
-    echo
-    echo
-    echo "#########################"
-    echo "      Shutting down"
-    echo "#########################"
-    sudo shutdown now
-}
-
-function REBOOT {
-    sleep 1
-    echo
-    echo
-    echo "#########################"
-    echo "        Rebooting"
-    echo "#########################"
-    sudo reboot
-    ## End of script
-}
-
-# The main process starts
-while [ "$1" != "" ]; do
-    case $1 in
-        -h | --help )        SHOW_HELP
-                             exit
-                                ;;
-        -s | --shutdown )    WELCOME_SCREEN && MAINTENANCE && GOODBYE && SHUTDOWN
-                             exit
-                                ;;
-        -r | --reboot )      WELCOME_SCREEN && MAINTENANCE && GOODBYE && REBOOT
-                             exit
-                                ;;
-        * )                  SHOW_HELP
-                             exit 1
-    esac
-done
 ## If no parameter is given, just do the regular maintenance
 WELCOME_SCREEN && MAINTENANCE && GOODBYE
 

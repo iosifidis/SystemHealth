@@ -17,16 +17,7 @@ chmod +x mysystemhealth
 3. You can run it using the command
 
 ```
-sudo ./mysystemhealth <parameter>
-```
-
-### Parameters
-```
--h          display this help and exit   
-
--r          After completing all the tasks, reboot the system   
-
--s          After completing all the tasks, shutdown the system
+sudo ./mysystemhealth
 ```
 
 ## Use as root user.
@@ -40,7 +31,7 @@ sudo cp mysystemhealth /usr/bin/
 Then you can run the command on your terminal usind the following command.
 
 ```
-sudo mysystemhealth <parameter>
+sudo mysystemhealth
 ```
 
 # Leap
@@ -58,16 +49,7 @@ chmod +x myleapsystemhealth
 3. You can run it using the command
 
 ```
-sudo ./myleapsystemhealth <parameter>
-```
-
-### Parameters
-```
--h          display this help and exit   
-
--r          After completing all the tasks, reboot the system   
-
--s          After completing all the tasks, shutdown the system
+sudo ./myleapsystemhealth
 ```
 
 ## Use as root user.
@@ -81,5 +63,5 @@ sudo cp myleapsystemhealth /usr/bin/
 Then you can run the command on your terminal usind the following command.
 
 ```
-sudo myleapsystemhealth <parameter>
+sudo myleapsystemhealth
 ```
